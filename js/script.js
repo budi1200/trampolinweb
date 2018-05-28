@@ -62,10 +62,44 @@ function renderTeamInfo(id){
                 </div>
             </div>
             <div class="team-details-website">
-                <a href="` + team.www + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="sidenav-trigger small material-icons">language</i>Email</a>
+                <a href="` + team.www + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="sidenav-trigger small material-icons">language</i>Website</a>
             </div>
-            <span class="team-desc"> ` + team.kratek_opis + `</span>
+            <div class="team-details-slideshow">
+            </div>
+            <div class="team-details-desc-wrapper">
+                <span class="team-desc"> ` + team.opis + `</span>
+            </div>
+            <div class="team-details-member-list-wrapper">
+
+            </div>
         </div>
 
         `);
+        setSlideshow(team.dod_slike);
+        addMembers(team.id, team.clani);
+}
+
+function setSlideshow(slike){
+    for(var i=0;i<slike.length;i++){
+        $(".team-details-slideshow").append('<div><img class="team-details-slideshow-img" src="' + slike[i].url + '"></div>');
+    }
+    $('.team-details-slideshow').slick({
+        infinite: false
+    });
+}
+
+function addMembers(team_id, clani){
+    for(var i=0;i<clani.length;i++){
+        $(".team-details-member-list-wrapper").append(`
+            <div class="waves-effect team-details-member-wrapper" onclick="renderMemberDetails(` + i + `, ` + team_id + `)">
+                    <img src="` + clani[i].slika + `">
+                    <span>` + clani[i].ime + " " + clani[i].priimek + `</span>
+            </div>
+        `);
+    }
+}
+
+function renderMemberDetails(member_id, team_id){
+    var member = data.ekipe[team_id-1].clani[member_id];
+    console.log(member);
 }
