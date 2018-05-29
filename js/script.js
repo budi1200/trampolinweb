@@ -10,6 +10,7 @@ xhr.onload = function () {
     //console.log(xhr.response);
     index();
     vote();
+    about();
 };
 
 xhr.onerror = function () {
@@ -20,12 +21,14 @@ xhr.send();
 
 $(document).ready(function () {
     $('.sidenav').sidenav();
+    $("#splash").delay(2000).fadeOut();
 });
 
 function index(){
+    headerIconMenu();
+    $(".nav-wrapper-wrapper a").html("Teams");
     $(".index").html("");
     for(var i=0;i<data.ekipe.length;i++){
-        //console.log(data.ekipe[i]);
         renderTeam(data.ekipe[i]);
     }
 }
@@ -46,13 +49,17 @@ function renderTeam(team){
             </div>
         </div>
 
-        `)
+        `).hide().fadeIn("normal");
 }
 
 function renderTeamInfo(id){
+    backTeam();
+    $(".nav-wrapper-wrapper i").removeClass("sidenav-trigger");
     var team = data.ekipe[id-1];
+    $(".nav-wrapper-wrapper a").html(team.ime);
     //console.log(team);
     $(".index").html("");
+
     $(".index").append(`
         <div class="team-details-wrapper">
             <div class="team-details-header">
@@ -62,7 +69,7 @@ function renderTeamInfo(id){
                 </div>
             </div>
             <div class="team-details-website">
-                <a href="` + team.www + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="sidenav-trigger small material-icons">language</i>Website</a>
+                <a href="` + team.www + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="small material-icons">language</i>Website</a>
             </div>
             <div class="team-details-slideshow">
             </div>
@@ -74,9 +81,29 @@ function renderTeamInfo(id){
             </div>
         </div>
 
-        `);
+        `).hide().fadeIn("slow");
         setSlideshow(team.dod_slike);
         addMembers(team.id, team.clani);
+}
+
+function backTeam(){
+    $(".nav-wrapper-wrapper i").off("click");
+    $(".nav-wrapper-wrapper i").html("arrow_back");
+    $(".nav-wrapper-wrapper i").removeClass("sidenav-trigger");
+    setTimeout(function () { $(".nav-wrapper-wrapper i").on("click", function () { index() }); }, 10);
+}
+
+function backMember(team_id){
+    $(".nav-wrapper-wrapper i").off("click");
+    $(".nav-wrapper-wrapper i").html("arrow_back");
+    $(".nav-wrapper-wrapper i").removeClass("sidenav-trigger");
+    $(".nav-wrapper-wrapper i").on("click", function () { renderTeamInfo(team_id) });
+}
+
+function headerIconMenu(){
+    $(".nav-wrapper-wrapper i").html("menu");
+    $(".nav-wrapper-wrapper i").off("click");
+    setTimeout(function () { $(".nav-wrapper-wrapper i").addClass("sidenav-trigger"); }, 10);
 }
 
 function setSlideshow(slike){
@@ -101,5 +128,35 @@ function addMembers(team_id, clani){
 
 function renderMemberDetails(member_id, team_id){
     var member = data.ekipe[team_id-1].clani[member_id];
-    console.log(member);
+    $(".nav-wrapper-wrapper a").html(member.ime);
+    backMember(team_id);
+    $(".index").html("");
+    $(".index").append(`
+        <div class="team-details-wrapper">
+            <div class="team-details-header">
+                <img class="team-details-img" src="` + member.slika + `"/>
+                <div class="team-inner">
+                    <span class="team-name team-name-details"> ` + member.ime + ` ` + member.priimek + `</span>
+                </div>
+            </div>
+            <div class="team-details-desc-wrapper">
+                <span class="team-desc"> ` + member.opis + `</span>
+            </div>
+            <div id="member-details-links" class="team-details-website">
+                <a href="` + member.email + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="small material-icons">mail</i>Email</a>
+                <a href="tel:` + member.phone + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="small material-icons">phone</i>` + member.phone + `</a>
+                <a href="` + member.linkedin + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="small material-icons">info</i>Linkedin</a>
+            </div>
+        </div>
+
+        `).hide().fadeIn("slow");
+}
+
+function about(){
+    $(".about").append(`
+        <img src=` + data.oprogramuslika + `>
+        <div>
+            <span>` + data.oprogramu + `</span>
+        </div>
+    `);
 }

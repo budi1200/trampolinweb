@@ -33,9 +33,6 @@ $(function() {
                         });
                         $("nav a").removeClass("current");
                         //console.log(href);
-                        if(href == "index.html"){
-                            index();
-                        }
                         switch(href){
                             case "index.html":
                                 $(".nav-wrapper-wrapper a").html("Teams");
@@ -47,6 +44,7 @@ $(function() {
                                 break;
                             case "about.html":
                                 $(".nav-wrapper-wrapper a").html("About");
+                                about();
                                 break;
                             case "web_info.html":
                                 $(".nav-wrapper-wrapper a").html("Website Info");

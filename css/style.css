@@ -100,7 +100,7 @@
 }
 
 .team-details-img{
-    border-radius: 50px;
+    border-radius: 100px;
     max-width: 128px;
     max-height: 128px;
     object-fit: contain;
@@ -129,6 +129,7 @@
     align-items: center;
     padding: 16px;
     border-bottom: 1px solid #E0E0E0;
+    height: 97px;
 }
 
 .team-details-member-wrapper img{
@@ -138,4 +139,21 @@
 
 .team-details-member-wrapper span{
     padding-left: 6px;
+}
+
+.about img{
+    width: 100%;
+}
+
+.about div{
+    padding-top: 16px;
+}
+
+#member-details-links{
+    flex-direction: column;
+}
+
+#splash{
+    z-index: 99;
+    position: absolute;
 }

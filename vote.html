@@ -1,58 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
-    <title>Trampolin</title>
-</head>
-<body id="bod">
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+        <link type="text/css" rel="stylesheet" href="css/style.css" />
+        <title>Trampolin</title>
+    </head>
+    <body id="bod">
+        <img id="splash" src="splash_sasa.svg">
+        <div id="page-wrap">
+            <nav>
+                <div class="nav-wrapper">
+                    <div class="nav-wrapper-wrapper">
+                        <i data-target="slide-out" class="waves-effect waves-light sidenav-trigger large material-icons drawer-icon">menu</i>
+                        <a href="#!">Vote</a>
+                    </div>
+                </div>
+            </nav>
 
-    <div id="page-wrap">
-        <nav>
-            <div class="nav-wrapper">
-                <div class="nav-wrapper-wrapper">
-                    <i data-target="slide-out" class="waves-effect waves-light sidenav-trigger large material-icons drawer-icon">menu</i>
-                    <a href="#!">Vote</a>
+            <ul id="slide-out" class="sidenav">
+                <li>
+                    <a id="index" class="waves-effect" href="index.html"><i class="small material-icons">person</i>Teams</a>
+                </li>
+
+                <li>
+                    <a id="vote" class="waves-effect active" href="vote.html"><i class="small material-icons">poll</i>Vote</a>
+                </li>
+
+                <li>
+                    <a id="about" class="waves-effect" href="about.html"><i class="small material-icons">info</i>About</a>
+                </li>
+
+                <li>
+                    <a id="web_info" class="waves-effect" href="web_info.html"><i class="small material-icons">settings</i>Website Info</a>
+                </li>
+            </ul>
+
+            <div id="main-content">
+                <div id="guts" style="padding: 0" class="vote">
+
                 </div>
             </div>
-        </nav>
-
-        <ul id="slide-out" class="sidenav">
-            <li>
-                <a id="index" class="waves-effect" href="index.html"><i class="small material-icons">person</i>Teams</a>
-            </li>
-
-            <li>
-                <a id="vote" class="waves-effect active" href="vote.html"><i class="small material-icons">poll</i>Vote</a>
-            </li>
-
-            <li>
-                <a id="about" class="waves-effect" href="about.html"><i class="small material-icons">info</i>About</a>
-            </li>
-
-            <li>
-                <a id="web_info" class="waves-effect" href="web_info.html"><i class="small material-icons">settings</i>Website Info</a>
-            </li>
-        </ul>
-
-        <div id="main-content">
-            <div id="guts" style="padding: 0" class="vote">
-                
-            </div>
         </div>
-    </div>
 
-    <script src="js/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script src="js/modernizr-custom.js"></script>
-    <script src="js/dynamicpage.js"></script>
-    <script src="js/script.js"></script>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+        <script src="js/dynamicpage.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>
