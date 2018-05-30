@@ -8,7 +8,7 @@ xhr.responseType = 'json';
 xhr.onload = function () {
     data = xhr.response;
     //console.log(xhr.response);
-    index();
+    teams();
     vote();
     about();
 };
@@ -24,7 +24,7 @@ $(document).ready(function () {
     $("#splash").delay(2000).fadeOut();
 });
 
-function index(){
+function teams(){
     headerIconMenu();
     $(".nav-wrapper-wrapper a").html("Teams");
     $(".index").html("");
@@ -90,7 +90,7 @@ function backTeam(){
     $(".nav-wrapper-wrapper i").off("click");
     $(".nav-wrapper-wrapper i").html("arrow_back");
     $(".nav-wrapper-wrapper i").removeClass("sidenav-trigger");
-    setTimeout(function () { $(".nav-wrapper-wrapper i").on("click", function () { index() }); }, 10);
+    setTimeout(function () { $(".nav-wrapper-wrapper i").on("click", function () { teams() }); }, 10);
 }
 
 function backMember(team_id){

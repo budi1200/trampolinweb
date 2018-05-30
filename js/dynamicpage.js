@@ -34,9 +34,9 @@ $(function() {
                         $("nav a").removeClass("current");
                         //console.log(href);
                         switch(href){
-                            case "index.html":
+                            case "teams.html":
                                 $(".nav-wrapper-wrapper a").html("Teams");
-                                index();
+                                teams();
                                 break;
                             case "vote.html":
                                 $(".nav-wrapper-wrapper a").html("Vote");
@@ -67,5 +67,4 @@ $(function() {
 
 } // otherwise, history is not supported, so nothing fancy here.
 
-    
 });
