@@ -143,9 +143,9 @@ function renderMemberDetails(member_id, team_id){
                 <span class="team-desc"> ` + member.opis + `</span>
             </div>
             <div id="member-details-links" class="team-details-website">
-                <a href="` + member.email + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="small material-icons">mail</i>Email</a>
-                <a href="tel:` + member.phone + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="small material-icons">phone</i>` + member.phone + `</a>
-                <a href="` + member.linkedin + `" target="_blank" class="link waves-effect"><i data-target="slide-out" class="small material-icons">info</i>Linkedin</a>
+                <a href="mailto:` + member.email + `" target="_blank" class="link waves-effect ` + (member.email == "" ? "disabled" : "") + `"><i data-target="slide-out" class="small material-icons">mail</i>` + member.email + `</a>
+                <a href="tel:` + member.phone + `" target="_blank" class="link waves-effect ` + (member.phone == "" ? "disabled" : "") + `"><i data-target="slide-out" class="small material-icons">phone</i>` + member.phone + `</a>
+                <a href="` + member.linkedin + `" target="_blank" class="link waves-effect ` + (member.linkedin == "" ? "disabled" : "") + `"><i data-target="slide-out" class="small material-icons">info</i>Linkedin</a>
             </div>
         </div>
 

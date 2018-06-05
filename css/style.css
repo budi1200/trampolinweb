@@ -194,3 +194,17 @@ html{
     height: 100%;
 }
 
+#member-details-links a{
+    -webkit-user-select: unset;
+    -moz-user-select: unset;
+    -ms-user-select: unset;
+    user-select: unset;
+}
+
+.disabled{
+    background-color: transparent !important;
+    color: #b3b2b2 !important;
+    cursor: default;
+    pointer-events: none;
+    user-select: none !important;
+}
